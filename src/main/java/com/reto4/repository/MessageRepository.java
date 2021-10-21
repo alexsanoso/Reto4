@@ -47,6 +47,10 @@ public class MessageRepository {
         return messageCrudRepository.save(message);
     }
 
+    /**
+     * método para borrar un mensaje
+     * @param message
+     */
     public void delete(Message message){
         messageCrudRepository.delete(message);
     }

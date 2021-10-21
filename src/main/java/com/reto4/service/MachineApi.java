@@ -55,6 +55,11 @@ public class MachineApi {
         }
     }
 
+    /**
+     * método para actualiza una maquina
+     * @param machine
+     * @return
+     */
     public Machine update(Machine machine){
         if(machine.getId()!=null){
             Optional<Machine> actualizar=machineRepository.getMachine(machine.getId());
@@ -82,6 +87,11 @@ public class MachineApi {
         }
     }
 
+    /**
+     * método para borrar una maquina
+     * @param machineId
+     * @return
+     */
     public boolean deleteMachine(int machineId) {
         Boolean aBoolean = getMachine(machineId).map(machine -> {
             machineRepository.delete(machine);
@@ -89,6 +99,5 @@ public class MachineApi {
         }).orElse(false);
         return aBoolean;
     }
-
 }
 

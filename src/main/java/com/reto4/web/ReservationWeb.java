@@ -53,12 +53,22 @@ public class ReservationWeb {
         return reservationApi.save(reservation);
     }
 
+    /**
+     * método para actualziar una reservación
+     * @param reservation
+     * @return
+     */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation update(@RequestBody Reservation reservation) {
         return reservationApi.update(reservation);
     }
 
+    /**
+     * método para borrar una reservación por id
+     * @param reservationId
+     * @return
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int reservationId) {

@@ -53,12 +53,22 @@ public class MachineWeb {
         return machineApi.save(machine);
     }
 
+    /**
+     * método para actualizar cada maquina
+     * @param machine
+     * @return
+     */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Machine update(@RequestBody Machine machine) {
         return machineApi.update(machine);
     }
 
+    /**
+     * método para borrar cada cliente por id
+     * @param machineId
+     * @return
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int machineId) {

@@ -47,6 +47,10 @@ public class ClientRepository {
         return clientCrudRepository.save(client);
     }
 
+    /**
+     * método para borrar un client
+     * @param client
+     */
     public void delete(Client client){
         clientCrudRepository.delete(client);
     }

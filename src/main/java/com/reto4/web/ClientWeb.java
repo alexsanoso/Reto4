@@ -52,12 +52,22 @@ public class ClientWeb {
         return clientApi.save(client);
     }
 
+    /**
+     * método para actualizar cada cliente
+     * @param client
+     * @return
+     */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Client update(@RequestBody Client client) {
         return clientApi.update(client);
     }
 
+    /**
+     * método para borrar cada cliente por id
+     * @param clientId
+     * @return
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int clientId) {

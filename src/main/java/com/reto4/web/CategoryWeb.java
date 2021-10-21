@@ -52,12 +52,22 @@ public class CategoryWeb {
         return categoryApi.save(category);
     }
 
+    /**
+     * método para actualziar cada categoria
+     * @param category
+     * @return
+     */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Category update(@RequestBody Category category) {
         return categoryApi.update(category);
     }
 
+    /**
+     * método para borrar cada categoria por id
+     * @param categoryId
+     * @return
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int categoryId) {

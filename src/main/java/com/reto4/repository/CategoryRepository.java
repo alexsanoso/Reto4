@@ -47,6 +47,10 @@ public class CategoryRepository {
         return categoryCrudRepository.save(category);
     }
 
+    /**
+     * método para borrar una categoria
+     * @param category
+     */
     public void delete(Category category){
         categoryCrudRepository.delete(category);
     }

@@ -55,6 +55,11 @@ public class MessageApi {
         }
     }
 
+    /**
+     * método para actualziar un mensaje
+     * @param message
+     * @return
+     */
     public Message update(Message message){
         if(message.getIdMessage()!=null){
             Optional<Message> actualizar= messageRepository.getMessage(message.getIdMessage());
@@ -72,6 +77,11 @@ public class MessageApi {
         }
     }
 
+    /**
+     * método para borrar un mensaje
+     * @param messageId
+     * @return
+     */
     public boolean deleteMessage(int messageId) {
         Boolean aBoolean = getMessage(messageId).map(message -> {
             messageRepository.delete(message);

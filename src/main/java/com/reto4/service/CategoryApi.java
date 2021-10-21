@@ -54,6 +54,11 @@ public class CategoryApi {
         }
     }
 
+    /**
+     * método para actualizar una categoria
+     * @param category
+     * @return
+     */
     public Category update(Category category){
         if(category.getId()!=null){
             Optional<Category>actualizar=categoryRepository.getCategory(category.getId());
@@ -69,6 +74,12 @@ public class CategoryApi {
         }
         return category;
     }
+
+    /**
+     * método para borrar una categoria por id
+     * @param id
+     * @return
+     */
     public boolean deleteCategory(int id){
         Boolean borrar=getCategory(id).map(category -> {
             categoryRepository.delete(category);

@@ -56,6 +56,11 @@ public class ClientApi {
         }
     }
 
+    /**
+     * método para actualizar un cliente
+     * @param client
+     * @return
+     */
     public Client update(Client client){
         if(client.getIdClient()!=null){
             Optional<Client> actualizar= clientRepository.getClient(client.getIdClient());
@@ -79,6 +84,11 @@ public class ClientApi {
         }
     }
 
+    /**
+     * método para borrar un cliente
+     * @param clientId
+     * @return
+     */
     public boolean deleteClient(int clientId) {
         Boolean aBoolean = getClient(clientId).map(client -> {
             clientRepository.delete(client);

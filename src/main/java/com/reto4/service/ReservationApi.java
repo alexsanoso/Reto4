@@ -55,6 +55,11 @@ public class ReservationApi {
         }
     }
 
+    /**
+     * método para actualizar una reservación
+     * @param reservation
+     * @return
+     */
     public Reservation update(Reservation reservation){
         if(reservation.getIdReservation()!=null){
             Optional<Reservation> actualizar= reservationRepository.getReservation(reservation.getIdReservation());
@@ -79,6 +84,11 @@ public class ReservationApi {
         }
     }
 
+    /**
+     * método para borrar una reservación
+     * @param reservationId
+     * @return
+     */
     public boolean deleteReservation(int reservationId) {
         Boolean aBoolean = getReservation(reservationId).map(reservation -> {
             reservationRepository.delete(reservation);
@@ -86,6 +96,5 @@ public class ReservationApi {
         }).orElse(false);
         return aBoolean;
     }
-
 }
 

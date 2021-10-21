@@ -47,6 +47,10 @@ public class MachineRepository {
         return machineCrudRepository.save(machine);
     }
 
+    /**
+     * método para borrar una maquina
+     * @param machine
+     */
     public void delete(Machine machine){
         machineCrudRepository.delete(machine);
     }

@@ -53,12 +53,22 @@ public class MessageWeb {
         return messageApi.save(message);
     }
 
+    /**
+     * método para actualizar cada mensaje
+     * @param message
+     * @return
+     */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Message update(@RequestBody Message message) {
         return messageApi.update(message);
     }
 
+    /**
+     * método para borrar un mensaje por id
+     * @param messageId
+     * @return
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int messageId) {
