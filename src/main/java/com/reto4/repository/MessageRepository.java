@@ -1,6 +1,7 @@
 package com.reto4.repository;
 
 // Importaciones
+import com.reto4.modelo.Category;
 import com.reto4.modelo.Message;
 import com.reto4.repository.crud.MessageCrudRepository;
 import java.util.List;
@@ -44,5 +45,9 @@ public class MessageRepository {
      */
     public Message save(Message message){
         return messageCrudRepository.save(message);
+    }
+
+    public void delete(Message message){
+        messageCrudRepository.delete(message);
     }
 }

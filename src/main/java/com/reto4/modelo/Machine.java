@@ -34,7 +34,7 @@ public class Machine implements Serializable {
      * Atributo year machine
      */
     @Column(name = "year")
-    private int year;
+    private Integer year;
     /**
      * Atributo description machine
      */
@@ -114,7 +114,7 @@ public class Machine implements Serializable {
      * getter year machine
      * @return
      */
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
@@ -122,7 +122,7 @@ public class Machine implements Serializable {
      * setter year machine
      * @param year
      */
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

@@ -1,6 +1,7 @@
 package com.reto4.repository;
 
 // Importaciones
+import com.reto4.modelo.Category;
 import com.reto4.modelo.Reservation;
 import com.reto4.repository.crud.ReservationCrudRepository;
 import java.util.List;
@@ -44,5 +45,13 @@ public class ReservationRepository {
      */
     public Reservation save(Reservation reservation){
         return reservationRepository.save(reservation);
+    }
+
+    /**
+     * método para borrar una reservación
+     * @param reservation
+     */
+    public void delete(Reservation reservation){
+        reservationRepository.delete(reservation);
     }
 }

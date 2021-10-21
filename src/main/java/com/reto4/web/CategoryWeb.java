@@ -58,7 +58,7 @@ public class CategoryWeb {
         return categoryApi.update(category);
     }
 
-    @DeleteMapping("delete")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int categoryId) {
         return categoryApi.deleteCategory(categoryId);

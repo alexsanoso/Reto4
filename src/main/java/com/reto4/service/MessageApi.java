@@ -1,5 +1,6 @@
 package com.reto4.service;
 
+import com.reto4.modelo.Category;
 import com.reto4.modelo.Message;
 import com.reto4.repository.MessageRepository;
 import java.util.List;
@@ -52,5 +53,30 @@ public class MessageApi {
                 return message;
             }
         }
+    }
+
+    public Message update(Message message){
+        if(message.getIdMessage()!=null){
+            Optional<Message> actualizar= messageRepository.getMessage(message.getIdMessage());
+            if(!actualizar.isEmpty()){
+                if(message.getMessageText()!=null){
+                    actualizar.get().setMessageText(message.getMessageText());
+                }
+                messageRepository.save(actualizar.get());
+                return actualizar.get();
+            }else{
+                return message;
+            }
+        }else{
+            return message;
+        }
+    }
+
+    public boolean deleteMessage(int messageId) {
+        Boolean aBoolean = getMessage(messageId).map(message -> {
+            messageRepository.delete(message);
+            return true;
+        }).orElse(false);
+        return aBoolean;
     }
 }

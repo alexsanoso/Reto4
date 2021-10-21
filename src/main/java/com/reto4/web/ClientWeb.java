@@ -51,5 +51,17 @@ public class ClientWeb {
     public Client save(@RequestBody Client client){
         return clientApi.save(client);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update(@RequestBody Client client) {
+        return clientApi.update(client);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int clientId) {
+        return clientApi.deleteClient(clientId);
+    }
 }
 

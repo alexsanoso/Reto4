@@ -1,5 +1,6 @@
 package com.reto4.web;
 
+import com.reto4.modelo.Client;
 import com.reto4.modelo.Machine;
 import com.reto4.service.MachineApi;
 import java.util.List;
@@ -52,5 +53,16 @@ public class MachineWeb {
         return machineApi.save(machine);
     }
 
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Machine update(@RequestBody Machine machine) {
+        return machineApi.update(machine);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int machineId) {
+        return machineApi.deleteMachine(machineId);
+    }
 }
 

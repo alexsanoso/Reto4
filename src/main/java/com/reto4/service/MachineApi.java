@@ -54,5 +54,41 @@ public class MachineApi {
             }
         }
     }
+
+    public Machine update(Machine machine){
+        if(machine.getId()!=null){
+            Optional<Machine> actualizar=machineRepository.getMachine(machine.getId());
+            if(!actualizar.isEmpty()){
+                if(machine.getName()!=null){
+                    actualizar.get().setName(machine.getName());
+                }
+                if(machine.getBrand()!=null){
+                    actualizar.get().setBrand(machine.getBrand());
+                }
+                if(machine.getYear()!=null){
+                    actualizar.get().setYear(machine.getYear());
+                }
+                if(machine.getDescription()!=null){
+                    actualizar.get().setDescription(machine.getDescription());
+                }
+
+                machineRepository.save(actualizar.get());
+                return actualizar.get();
+            }else{
+                return machine;
+            }
+        }else{
+            return machine;
+        }
+    }
+
+    public boolean deleteMachine(int machineId) {
+        Boolean aBoolean = getMachine(machineId).map(machine -> {
+            machineRepository.delete(machine);
+            return true;
+        }).orElse(false);
+        return aBoolean;
+    }
+
 }
 

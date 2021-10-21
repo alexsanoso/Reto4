@@ -69,8 +69,8 @@ public class CategoryApi {
         }
         return category;
     }
-    public boolean deleteCategory(int categoryId){
-        Boolean borrar=getCategory(categoryId).map(category -> {
+    public boolean deleteCategory(int id){
+        Boolean borrar=getCategory(id).map(category -> {
             categoryRepository.delete(category);
             return true;
         }).orElse(false);

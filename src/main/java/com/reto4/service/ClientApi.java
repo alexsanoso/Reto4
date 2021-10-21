@@ -1,5 +1,6 @@
 package com.reto4.service;
 
+import com.reto4.modelo.Category;
 import com.reto4.modelo.Client;
 import com.reto4.repository.ClientRepository;
 import java.util.List;
@@ -53,5 +54,36 @@ public class ClientApi {
                 return client;
             }
         }
+    }
+
+    public Client update(Client client){
+        if(client.getIdClient()!=null){
+            Optional<Client> actualizar= clientRepository.getClient(client.getIdClient());
+            if(!actualizar.isEmpty()){
+                if(client.getName()!=null){
+                    actualizar.get().setName(client.getName());
+                }
+                if(client.getAge() !=null){
+                    actualizar.get().setAge(client.getAge());
+                }
+                if(client.getPassword()!=null){
+                    actualizar.get().setPassword(client.getPassword());
+                }
+                clientRepository.save(actualizar.get());
+                return actualizar.get();
+            }else{
+                return client;
+            }
+        }else{
+            return client;
+        }
+    }
+
+    public boolean deleteClient(int clientId) {
+        Boolean aBoolean = getClient(clientId).map(client -> {
+            clientRepository.delete(client);
+            return true;
+        }).orElse(false);
+        return aBoolean;
     }
 }

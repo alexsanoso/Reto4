@@ -1,6 +1,7 @@
 package com.reto4.repository;
 
 // Importaciones
+import com.reto4.modelo.Category;
 import com.reto4.modelo.Client;
 import com.reto4.repository.crud.ClientCrudRepository;
 import java.util.List;
@@ -44,5 +45,9 @@ public class ClientRepository {
      */
     public Client save(Client client){
         return clientCrudRepository.save(client);
+    }
+
+    public void delete(Client client){
+        clientCrudRepository.delete(client);
     }
 }

@@ -1,5 +1,6 @@
 package com.reto4.service;
 
+import com.reto4.modelo.Category;
 import com.reto4.modelo.Reservation;
 import com.reto4.repository.ReservationRepository;
 import java.util.List;
@@ -53,5 +54,38 @@ public class ReservationApi {
             }
         }
     }
+
+    public Reservation update(Reservation reservation){
+        if(reservation.getIdReservation()!=null){
+            Optional<Reservation> actualizar= reservationRepository.getReservation(reservation.getIdReservation());
+            if(!actualizar.isEmpty()){
+
+                if(reservation.getStartDate()!=null){
+                    actualizar.get().setStartDate(reservation.getStartDate());
+                }
+                if(reservation.getDevolutionDate()!=null){
+                    actualizar.get().setDevolutionDate(reservation.getDevolutionDate());
+                }
+                if(reservation.getStatus()!=null){
+                    actualizar.get().setStatus(reservation.getStatus());
+                }
+                reservationRepository.save(actualizar.get());
+                return actualizar.get();
+            }else{
+                return reservation;
+            }
+        }else{
+            return reservation;
+        }
+    }
+
+    public boolean deleteReservation(int reservationId) {
+        Boolean aBoolean = getReservation(reservationId).map(reservation -> {
+            reservationRepository.delete(reservation);
+            return true;
+        }).orElse(false);
+        return aBoolean;
+    }
+
 }
 

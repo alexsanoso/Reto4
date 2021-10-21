@@ -1,5 +1,6 @@
 package com.reto4.web;
 
+import com.reto4.modelo.Machine;
 import com.reto4.modelo.Message;
 import com.reto4.service.MessageApi;
 import java.util.List;
@@ -50,6 +51,18 @@ public class MessageWeb {
     @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody Message message){
         return messageApi.save(message);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message update(@RequestBody Message message) {
+        return messageApi.update(message);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int messageId) {
+        return messageApi.deleteMessage(messageId);
     }
 }
 

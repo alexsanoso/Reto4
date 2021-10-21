@@ -107,7 +107,7 @@ public class Client implements Serializable {
      * getter age client
      * @return
      */
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 

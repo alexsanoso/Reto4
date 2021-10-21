@@ -1,6 +1,7 @@
 package com.reto4.repository;
 
 // Importaciones
+import com.reto4.modelo.Client;
 import com.reto4.modelo.Machine;
 import com.reto4.repository.crud.MachineCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,9 @@ public class MachineRepository {
      */
     public Machine save(Machine machine){
         return machineCrudRepository.save(machine);
+    }
+
+    public void delete(Machine machine){
+        machineCrudRepository.delete(machine);
     }
 }
