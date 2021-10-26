@@ -1,6 +1,5 @@
 package com.reto4.service;
 
-import com.reto4.modelo.Category;
 import com.reto4.modelo.Reservation;
 import com.reto4.repository.ReservationRepository;
 import java.util.List;
@@ -97,4 +96,3 @@ public class ReservationApi {
         return aBoolean;
     }
 }
-
