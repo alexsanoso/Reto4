@@ -36,7 +36,7 @@ public class Reservation implements Serializable {
      * Atributo status reservation
      */
     @Column(name = "status")
-    private String status = "creado";
+    private String status = "created";
 
     /**
      * Relación muchos a uno tabla machine
